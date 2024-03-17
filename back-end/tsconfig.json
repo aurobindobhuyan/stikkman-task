@@ -1,0 +1,15 @@
+{
+   "compilerOptions": {
+     "target": "es6",
+     "allowJs": true,
+     "checkJs": true,
+     "rootDir": "./",
+     "outDir": "./build",
+     "lib": ["es6", "es2020", "dom"],
+     "esModuleInterop": true,
+     "module": "commonJs",
+     "jsx": "react",
+     "types": ["node", "express"]
+   }
+ }
+ 
