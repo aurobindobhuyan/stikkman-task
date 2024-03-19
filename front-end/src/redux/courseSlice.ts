@@ -3,6 +3,8 @@ import axios from "axios";
 import { ICourse } from "../pages/Course/interface";
 import { RootState } from "./store";
 
+const URL = "http://localhost:8000/course";
+
 interface ICourseState {
   course: ICourse[];
 }
@@ -15,7 +17,7 @@ export const startGetCourse = createAsyncThunk(
   "/course/getCourses",
   async () => {
     try {
-      const result = await axios.get("http://localhost:8000/course");
+      const result = await axios.get(URL);
       return result.data;
     } catch (error: any) {
       return error.response;
@@ -25,9 +27,7 @@ export const startGetCourse = createAsyncThunk(
 
 export const startAddMany = createAsyncThunk("/course/addMany", async () => {
   try {
-    const response = await axios.post(
-      "http://localhost:8000/course/addCourses"
-    );
+    const response = await axios.post(`${URL}/addCourses`);
     return response.data;
   } catch (error: any) {
     return error.response;
@@ -38,7 +38,7 @@ export const startCreateCourse = createAsyncThunk(
   "/course/createCourse",
   async (data: any) => {
     try {
-      const response = await axios.post("http://localhost:8000/course", data);
+      const response = await axios.post(URL, data);
       return response.data;
     } catch (error: any) {
       return error.response;
@@ -51,7 +51,7 @@ export const startSearchByAuthor = createAsyncThunk(
   async (search: string) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/course/filter-by-authors?author=${search}`
+        `${URL}/filter-by-authors?author=${search}`
       );
       return response.data;
     } catch (error: any) {
@@ -64,10 +64,7 @@ export const startUpdateCourse = createAsyncThunk(
   "/course/updateCourse",
   async (data: any) => {
     try {
-      const response = await axios.put(
-        `http://localhost:8000/course/${data._id}`,
-        data
-      );
+      const response = await axios.put(`${URL}/${data._id}`, data);
       return response.data;
     } catch (error: any) {
       return error.response;
@@ -79,7 +76,7 @@ export const startDeleteCourse = createAsyncThunk(
   "/course/deleteCourse",
   async (id: any) => {
     try {
-      const result = await axios.delete(`http://localhost:8000/course/${id}`);
+      const result = await axios.delete(`${URL}/${id}`);
       return result.data;
     } catch (error: any) {
       return error.response;

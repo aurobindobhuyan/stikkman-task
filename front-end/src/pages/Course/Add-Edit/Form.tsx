@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -9,7 +8,7 @@ interface Props {
   course?: ICourse;
   handleCancel?: () => void;
   handleSubmit: (value: any) => void;
-  handleAddDemo: () => void;
+  handleAddDemo?: () => void;
 }
 
 const Form: React.FC<Props> = ({
