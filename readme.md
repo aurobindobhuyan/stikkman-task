@@ -44,10 +44,10 @@ $ npm run start
 
 | #   | action | method | url | request body | response |
 | --- | ------ | ------ | --- | ------- | -------- |
-| 1. | Get All Courses | GET | / | <div  align="center">-</div> | Array of courses or [ ] |
-| 2. | Create Single Course | POST | / | <ul><li>thumbnail*</li><li>name*</li><li>author*</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
+| 1. | Get All Courses | GET | / | <div  align="center">-</div> | Array of courses or [ Empty array ] |
+| 2. | Create Single Course | POST | / | <ul><li>thumbnail(required)</li><li>name(required)</li><li>author(required)</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
 | 3. | Get One Course | GET | /:courseId | <div  align="center">-</div> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>
-| 4. | Update One Record | PUT | /:courseId | <ul><li>thumbnail*</li><li>name*</li><li>author*</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>|
+| 4. | Update One Record | PUT | /:courseId | <ul><li>thumbnail(required)</li><li>name(required)</li><li>author(required)</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>|
 | 5. | Delete One Record | DELETE | /:courseId | <div  align="center">-</div> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>
 | 6. | Add multiple records | POST | /addCourses | Array of Courses | Array of Courses
 | 7. | Fetch Record by author | GET | /filter-by-authors?author=< name > | <div  align="center">-</div> | Array of Courses or [ ]
