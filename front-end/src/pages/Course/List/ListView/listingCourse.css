@@ -1,0 +1,50 @@
+.course-item {
+   width: 100%;
+   height: auto;
+   padding: 15px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+}
+
+.img-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.img-section {
+   width: 10px;
+   height: 100px;
+}
+
+.img-container div img {
+   border-radius: 50%;
+}
+
+.course-item h1 {
+   font-size: 18px;
+   margin-bottom: 10px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.course-item p.description {
+   font-size: 14px;
+   margin-bottom: 8px;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   text-overflow: ellipsis;
+}
+
+.read-more {
+   font-size: 14px;
+   color: blue;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}

@@ -1,0 +1,123 @@
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 80px;
+   height: 34px;
+}
+
+.switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+
+.slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   transition: .4s;
+   border-radius: 34px;
+}
+
+.slider:before {
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   transition: .4s;
+   border-radius: 50%;
+}
+
+.slider:after {
+   position: absolute;
+   content: "List";
+   right: 10px;
+   bottom: 4px;
+   transition: .4s;
+}
+
+input:checked+.slider {
+   background-color: #2196F3;
+}
+
+input:focus+.slider {
+   box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+   transform: translateX(46px);
+}
+
+input:checked+.slider:after {
+   content: "Table";
+   left: 4px;
+}
+
+/* ............................. */
+.listing-container {
+   padding: 20px;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 20px;
+   justify-items: center;
+}
+
+button {
+   padding: 10px 20px;
+   margin: 5px 5px 0 0;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   color: white;
+   background-color: #28a745;
+}
+
+/* ........................ Modal .......................... */
+.modal-backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 100;
+}
+
+.modal-container {
+   background-color: white;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   overflow: auto;
+   position: relative;
+   z-index: 100;
+}
+
+/* ........................ Header ................ */
+.container-header {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   gap: 10px;
+   margin-top: 10px;
+   padding-right: 15px;
+}
+
+.user-input {
+   padding: 5px;
+   width: 250px;
+   height: 43px;
+   border: 1px groove #28a745;
+   border-radius: 5px;
+   outline: none;
+}
