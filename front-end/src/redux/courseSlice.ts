@@ -23,6 +23,17 @@ export const startGetCourse = createAsyncThunk(
   }
 );
 
+export const startAddMany = createAsyncThunk("/course/addMany", async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:8000/course/addCourses"
+    );
+    return response.data;
+  } catch (error: any) {
+    return error.response;
+  }
+});
+
 export const startCreateCourse = createAsyncThunk(
   "/course/createCourse",
   async (data: any) => {
@@ -84,6 +95,12 @@ const courseSlice = createSlice({
     builder.addCase(startGetCourse.fulfilled, (state, action) => {
       if (action.payload.status === true) {
         state.course = action.payload.data;
+      }
+    });
+
+    builder.addCase(startAddMany.fulfilled, (state, action) => {
+      if (action.payload.status === true) {
+        state.course.push(...action.payload.data);
       }
     });
 

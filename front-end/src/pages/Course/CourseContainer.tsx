@@ -41,7 +41,7 @@ const CourseContainer: React.FC<ICourseContainerProps> = ({
       return course.author.toLowerCase().includes(searchUser.toLowerCase());
     });
     setFilteredUser(result);
-  }, [searchUser]);
+  }, [searchUser, courses]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchUser(e.target.value);
@@ -70,7 +70,7 @@ const CourseContainer: React.FC<ICourseContainerProps> = ({
         )}
         {courses.length === 0 ? (
           <div className="listing-container">
-            <h1>Loading...</h1>
+            <h1>No Courses there</h1>
           </div>
         ) : (
           <>

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { startCreateCourse } from "../../../redux/courseSlice";
+import { startCreateCourse, startAddMany } from "../../../redux/courseSlice";
 import Form from "./Form";
 
 interface ICreateCourse {
@@ -20,9 +20,27 @@ const CreateCourse = ({ handleCancel }: ICreateCourse) => {
     }
   };
 
+  const handleAddDemo = async () => {
+    try {
+      const confirmation = window.confirm("Are you sure to add demo records");
+      if (confirmation) {
+        const response = await dispatch<any>(startAddMany());
+        if (response.payload.status === true) {
+          handleCancel();
+        }
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   return (
     <>
-      <Form handleCancel={handleCancel} handleSubmit={handleSubmit} />
+      <Form
+        handleCancel={handleCancel}
+        handleSubmit={handleSubmit}
+        handleAddDemo={handleAddDemo}
+      />
     </>
   );
 };

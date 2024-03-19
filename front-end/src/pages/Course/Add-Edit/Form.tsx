@@ -9,9 +9,15 @@ interface Props {
   course?: ICourse;
   handleCancel?: () => void;
   handleSubmit: (value: any) => void;
+  handleAddDemo: () => void;
 }
 
-const Form: React.FC<Props> = ({ course, handleSubmit, handleCancel }) => {
+const Form: React.FC<Props> = ({
+  course,
+  handleSubmit,
+  handleCancel,
+  handleAddDemo,
+}) => {
   const formik = useFormik({
     initialValues: {
       name: course?.name || "",
@@ -94,6 +100,9 @@ const Form: React.FC<Props> = ({ course, handleSubmit, handleCancel }) => {
             Cancel
           </button>
         </form>
+        {handleAddDemo && (
+          <button onClick={handleAddDemo}>Add Demo Data</button>
+        )}
       </div>
     </div>
   );
