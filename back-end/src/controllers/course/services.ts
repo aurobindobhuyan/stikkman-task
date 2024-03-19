@@ -1,10 +1,22 @@
-import Course from "../../models/Course";
+import Course, { ICourseSchema } from "../../models/Course";
+import { demoRecords } from "./courses";
 import { OperationalError } from "../../utils/errorHandler";
 
 export const getAllCourse = async () => {
   const courses = await Course.find({}).lean().exec();
 
   return { status: true, data: courses };
+};
+
+export const addManyCourse = async (courses: ICourseSchema[]) => {
+  if (Object.keys(courses).length === 0) {
+    courses = demoRecords;
+  }
+  const response = await Course.insertMany(courses);
+
+  if (!response) throw new OperationalError(400, `Something went wrong`);
+
+  return { status: true, data: response };
 };
 
 export const createCourse = async ({
@@ -36,13 +48,17 @@ export const getOneCourse = async ({ courseId }) => {
 };
 
 export const getCourseByAuthor = async (author) => {
-  const course = await Course.find({ author }).lean().exec();
+  const courses = await Course.find({
+    author: { $regex: author, $options: "i" },
+  })
+    .lean()
+    .exec();
 
-  if (!course) {
+  if (!courses) {
     throw new OperationalError(400, "Couldn't find author with name " + author);
   }
 
-  return { status: true, data: course };
+  return { status: true, data: courses };
 };
 
 export const updateCourse = async ({

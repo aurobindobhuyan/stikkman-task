@@ -10,6 +10,13 @@ export const getAllCourse = asyncHandler(
   }
 );
 
+export const addManyCourse = asyncHandler(async(req: Request, res: Response) => {
+  const courses = req.body;
+  const response = await services.addManyCourse(courses);
+
+  res.json(response);
+});
+
 export const getCourseByAuthor = asyncHandler(
   async (req: Request, res: Response) => {
     const { author } = req.query;

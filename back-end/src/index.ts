@@ -1,5 +1,5 @@
 import express, { Request } from "express";
-// import helmet from "helmet";
+import helmet from "helmet";
 import compression from "compression";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(compression());
-// app.use(helmet());
+app.use(helmet());
 app.use(
   cors({
     origin: "*",

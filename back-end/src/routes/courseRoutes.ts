@@ -9,6 +9,7 @@ router
   .get(courseController.getAllCourse)
   .post(validator.createCourse, courseController.createCourse);
 
+router.post("/addCourses", courseController.addManyCourse);
 router.get(
   "/filter-by-authors",
   validator.getCourseByAuthor,

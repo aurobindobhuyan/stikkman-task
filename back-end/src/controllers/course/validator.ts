@@ -34,7 +34,7 @@ export const createCourse = (
       thumbnail: Joi.string().required().trim(),
       name: Joi.string().required().trim(),
       author: Joi.string().required().trim(),
-      description: Joi.string().trim(),
+      description: Joi.string().trim().allow("").empty(false),
     })
     .unknown(false);
 
@@ -54,7 +54,7 @@ export const getOneCourse = (
   next: NextFunction
 ) => {
   const schema = Joi.object().keys({
-    noteId: JoiMongoObjectId().required(),
+    courseId: JoiMongoObjectId().required(),
   });
   const { error } = schema.validate(req.params);
   if (error) {
@@ -76,10 +76,11 @@ export const updateCourse = (
 
   const bodySchema = Joi.object()
     .keys({
+      _id: JoiMongoObjectId().required(),
       thumbnail: Joi.string(),
       name: Joi.string(),
       author: Joi.string(),
-      description: Joi.string(),
+      description: Joi.string().trim().allow("").empty(false),
     })
     .unknown(false);
 
@@ -105,7 +106,7 @@ export const deleteCourse = (
   next: NextFunction
 ) => {
   const schema = Joi.object().keys({
-    noteId: JoiMongoObjectId().required(),
+    courseId: JoiMongoObjectId().required(),
   });
   const { error } = schema.validate(req.params);
   if (error) {
