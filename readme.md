@@ -19,7 +19,7 @@ $ npm i                     // npm install pacakges
 $ npm run dev               // run it locally
 
 // deployment for front-end app
-$ npm run build // this will compile the react code and generate a folder called dist in front-end folder, then run
+$ npm run build // This will make your app production ready.
 $ npm run preview
 ```
 
@@ -34,7 +34,7 @@ $ cp .env.example .env      // Update .env file keys
 $ npm run dev               // run it locally
 
 // deployment for back-end app
-$ npm run build // this will build the server code to es5 js codes and generate a build folder in server folder, then run the command
+$ npm run build // This will make your app production ready.
 $ npm run start
 ```
 
@@ -42,13 +42,12 @@ $ npm run start
 
 ### Course Resource
 
-| #   | action | method | url | request body | response |
-| --- | ------ | ------ | --- | ------- | -------- |
-| 1. | Get All Courses | GET | / | <div  align="center">-</div> | Array of courses or [ ] |
-| 2. | Create Single Course | POST | / | <ul><li>thumbnail*</li><li>name*</li><li>author*</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
-| 3. | Get One Course | GET | /:courseId | <div  align="center">-</div> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>
-| 4. | Update One Record | PUT | /:courseId | <ul><li>thumbnail*</li><li>name*</li><li>author*</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>|
-| 5. | Delete One Record | DELETE | /:courseId | <div  align="center">-</div> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul>
-| 6. | Add multiple records | POST | /addCourses | Array of Courses | Array of Courses
-| 7. | Fetch Record by author | GET | /filter-by-authors?author=< name > | <div  align="center">-</div> | Array of Courses or [ ]
-|
+| #   | action                 | method | <div  align="center">URL</div>         | <div  align="center">request body</div>                                                                   | <div  align="center">response</div>                                         |
+| --- | ---------------------- | ------ | -------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| 1.  | Get All Courses        | GET    | <div  align="center">/</div>           | <div  align="center">-</div>                                                                              | <div  align="center">Array of courses<br />or <br />[ ]</div>               |
+| 2.  | Create Single Course   | POST   | <div  align="center">/</div>           | <ul><li>thumbnail(required)</li><li>name(required)</li><li>author(required)</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
+| 3.  | Get One Course         | GET    | <div  align="center">/:courseId</div>  | <div  align="center">-</div>                                                                              | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
+| 4.  | Update One Record      | PUT    | <div  align="center">/:courseId</div>  | <ul><li>thumbnail(required)</li><li>name(required)</li><li>author(required)</li><li>description</li></ul> | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
+| 5.  | Delete One Record      | DELETE | <div  align="center">/:courseId</div>  | <div  align="center">-</div>                                                                              | <ul><li>thumbnail</li><li>name</li><li>author</li><li>description</li></ul> |
+| 6.  | Add multiple records   | POST   | <div  align="center">/addCourses</div> | Array of Courses                                                                                          | Array of Courses                                                            |
+| 7.  | Fetch Record by author | GET    | /filter-by-authors?author=< name >     | <div  align="center">-</div>                                                                              | <div  align="center">Array of courses<br />or <br />[ ]</div>               |
